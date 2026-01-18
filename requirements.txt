@@ -1,0 +1,7 @@
+confluent-kafka
+faker
+pandas
+pyarrow
+boto3
+pytest
+python-dotenv
