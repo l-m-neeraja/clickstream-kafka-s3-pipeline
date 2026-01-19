@@ -35,4 +35,11 @@ services:
       - kafka
     env_file:
       - .env.example
-
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile.consumer
+    depends_on:
+      - kafka
+    env_file:
+      - .env.example
