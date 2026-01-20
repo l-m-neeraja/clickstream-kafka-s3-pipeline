@@ -110,13 +110,13 @@ README.md
 
 
 
-\### Start the Pipeline
+### Start the Pipeline
 
 Run:
-
+```
 docker-compose up --build
 
-
+```
 
 This command starts:
 
@@ -184,7 +184,6 @@ This command starts:
 
 
 
-```
 
 
 
@@ -194,7 +193,7 @@ This command starts:
 
 - Partitioning: by ingestion time
 
-
+```
 
 Example output path:
 
@@ -206,9 +205,9 @@ This design improves analytical query performance.
 
 
 
+```
+
 ---
-
-
 
 ## Configuration
 
