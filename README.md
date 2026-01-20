@@ -1,8 +1,8 @@
-\# Event-Driven Clickstream Ingestion Pipeline
+# Event-Driven Clickstream Ingestion Pipeline
 
 
 
-\## Overview
+## Overview
 
 This project implements an event-driven data ingestion pipeline for simulated clickstream data using Apache Kafka and AWS S3.
 
@@ -18,43 +18,25 @@ The pipeline is fully containerized and can be executed locally using Docker Com
 
 
 
-\## Architecture
+## Architecture
 
 
 
-\### Data Flow
+### Data Flow
 
 Clickstream Producer → Kafka Topic → Kafka Consumer → S3 (Parquet Data Lake)
 
 
 
-\### Components
+### Components
 
-\- Kafka Producer (Python): generates simulated clickstream events
+- Kafka Producer (Python): generates simulated clickstream events
 
-\- Kafka Broker: handles event streaming
+- Kafka Broker: handles event streaming
 
-\- Kafka Consumer (Python): validates, transforms, batches events
+- Kafka Consumer (Python): validates, transforms, batches events
 
-\- AWS S3 (LocalStack): stores partitioned Parquet files
-
-
-
----
-
-
-
-\## Technology Stack
-
-\- Apache Kafka
-
-\- Python (confluent-kafka, pandas, pyarrow, boto3)
-
-\- Docker \& Docker Compose
-
-\- AWS S3 (via LocalStack)
-
-\- Pytest
+- AWS S3 (LocalStack): stores partitioned Parquet files
 
 
 
@@ -62,7 +44,25 @@ Clickstream Producer → Kafka Topic → Kafka Consumer → S3 (Parquet Data Lak
 
 
 
-\## Project Structure
+## Technology Stack
+
+- Apache Kafka
+
+- Python (confluent-kafka, pandas, pyarrow, boto3)
+
+- Docker \& Docker Compose
+
+- AWS S3 (via LocalStack)
+
+- Pytest
+
+
+
+---
+
+
+
+## Project Structure
 
 ```
 
@@ -98,15 +98,15 @@ README.md
 
 
 
-\## How to Run
+## How to Run
 
 
 
-\### Prerequisites
+### Prerequisites
 
-\- Docker
+- Docker
 
-\- Docker Compose
+- Docker Compose
 
 
 
@@ -120,13 +120,13 @@ docker-compose up --build
 
 This command starts:
 
-\- Kafka \& Zookeeper
+- Kafka \& Zookeeper
 
-\- LocalStack (S3)
+- LocalStack (S3)
 
-\- Producer service
+- Producer service
 
-\- Consumer service
+- Consumer service
 
 
 
@@ -134,8 +134,8 @@ This command starts:
 
 
 
-\## Clickstream Event Example
-
+## Clickstream Event Example
+```
 {
 
 &nbsp; "user\_id": "uuid",
@@ -154,45 +154,45 @@ This command starts:
 
 }
 
-
-
----
-
-
-
-\## Data Processing
-
-
-
-\### Transformations
-
-\- Required field validation
-
-\- Normalization (lowercasing)
-
-\- Timestamp parsing
-
-\- Ingestion timestamp added
-
-
-
-\### Batching
-
-\- Events are processed in batches
-
-\- Kafka offsets are committed only after successful S3 writes
-
-
+```
 
 ---
 
 
 
-\## S3 Data Lake Design
+## Data Processing
 
-\- File format: Apache Parquet
 
-\- Partitioning: by ingestion time
+
+### Transformations
+
+- Required field validation
+
+- Normalization (lowercasing)
+
+- Timestamp parsing
+
+- Ingestion timestamp added
+
+
+
+### Batching
+
+- Events are processed in batches
+
+- Kafka offsets are committed only after successful S3 writes
+
+
+
+```
+
+
+
+## S3 Data Lake Design
+
+- File format: Apache Parquet
+
+- Partitioning: by ingestion time
 
 
 
@@ -210,7 +210,7 @@ This design improves analytical query performance.
 
 
 
-\## Configuration
+## Configuration
 
 All configuration is handled via environment variables.
 
@@ -236,17 +236,17 @@ S3\_BUCKET=clickstream-bucket
 
 
 
-\## Testing
+## Testing
 
 
 
-\### Unit Tests
+### Unit Tests
 
 python -m pytest tests/unit
 
 
 
-\### Integration Tests
+### Integration Tests
 
 python -m pytest tests/integration
 
@@ -256,13 +256,13 @@ python -m pytest tests/integration
 
 
 
-\## Error Handling
+## Error Handling
 
-\- Kafka connection failures handled gracefully
+- Kafka connection failures handled gracefully
 
-\- Invalid messages are logged and skipped
+- Invalid messages are logged and skipped
 
-\- S3 write failures do not crash the consumer
+- S3 write failures do not crash the consumer
 
 
 
@@ -270,7 +270,7 @@ python -m pytest tests/integration
 
 
 
-\## Conclusion
+## Conclusion
 
 This project demonstrates a production-style, event-driven ingestion pipeline using Kafka and S3, following data engineering best practices for reliability, scalability, and analytics readiness.
 
